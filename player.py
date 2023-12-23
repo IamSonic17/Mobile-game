@@ -1,5 +1,3 @@
-from variants import Variants
-
 
 # Class for create object of player
 class Player:
@@ -10,9 +8,9 @@ class Player:
 
     def __gt__(self, other) -> bool:
         return any((
-            self.choice == Variants.ROCK and other.choice == Variants.SCISSORS,
-            self.choice == Variants.SCISSORS and other.choice == Variants.PAPER,
-            self.choice == Variants.PAPER and other.choice == Variants.ROCK
+            self.choice == 'rock' and other.choice == 'scissors',
+            self.choice == 'scissors' and other.choice == 'paper',
+            self.choice == 'paper' and other.choice == 'rock'
         ))
 
     def __eq__(self, other):
