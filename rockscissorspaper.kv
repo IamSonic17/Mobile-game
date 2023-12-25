@@ -1,57 +1,54 @@
 <MyOwnLabel@Label>
     font_size: '25sp'
-    haling: 'left'
-    valing: 'middle'
+    halign: 'center'
+    valign: 'top'
     text_size: self.size
 
 <Container>:
     rows: 3
-    text_input: text_input
     bot_score: bot_score
     user_score: user_score
     user_name: user_name
+    status: status
+    rock: rock
 
     AnchorLayout:
         anchor_y: 'top'
-        size_hint: 1, 0.15
+        size_hint: 0.1, 0.15
 
-        TextInput:
-            text: 'Enter your name'
-            id: text_input
-            font_size: '25sp'
-            input_type: 'text'
-            multiline: False
+        GridLayout:
+            cols: 2
+            padding: [0, 20, 0, 0]
 
-    GridLayout:
-        cols: 2
-        padding: [40, 0, 0, 0]
+            BoxLayout:
 
-        BoxLayout:
-            orientation: 'vertical'
+                MyOwnLabel:
+                    text: 'Bot ->'
+                    id: bot_name
 
-            MyOwnLabel:
-                text: 'Bot'
-                id: bot_name
 
-            MyOwnLabel:
-                text: '0'
-                id: bot_score
+                MyOwnLabel:
+                    text: '0'
+                    id: bot_score
 
-        BoxLayout:
-            orientation: 'vertical'
-            size_hint: 0.5, 1
 
-            MyOwnLabel:
-                text: 'User'
-                id: user_name
+            BoxLayout:
 
-            MyOwnLabel:
-                text: '0'
-                id: user_score
+                MyOwnLabel:
+                    text: '0'
+                    id: user_score
 
+                MyOwnLabel:
+                    text: '<- User'
+                    id: user_name
+
+    Label:
+        text: 'What is in your hand?'
+        font_size: 25
+        id: status
 
     BoxLayout:
-        size_hint: 0.1, 0.15
+        size_hint: 0.1, 0.75
         padding: [30, 20, 30, 20]
 
         Button:
