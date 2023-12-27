@@ -1,16 +1,30 @@
 <MyOwnLabel@Label>
     font_size: '25sp'
+    color: (0,0,0,1)
+    font_size: '50sp'
+    font_name:"Playskool"
     halign: 'center'
     valign: 'top'
     text_size: self.size
 
+
 <Container>:
-    rows: 3
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'backscreen.jpg'
+
+    rows: 4
     bot_score: bot_score
     user_score: user_score
     user_name: user_name
     status: status
     rock: rock
+    scissors: scissors
+    paper: paper
+    play_again: play_again
 
     AnchorLayout:
         anchor_y: 'top'
@@ -44,7 +58,13 @@
 
     Label:
         text: 'What is in your hand?'
-        font_size: 25
+        color: (0,0,0,1)
+        font_size: '50sp'
+        font_name:"Playskool"
+        size_hint: 0.1, 0.4
+        halign: 'center'
+        valign: 'center'
+        text_size: self.size
         id: status
 
     BoxLayout:
@@ -52,22 +72,64 @@
         padding: [30, 20, 30, 20]
 
         Button:
-            text: 'Камень'
+            text: ''
+            font_size: '25sp'
+            size_hint: 1, 1
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            background_color: 255,254,223,0
             id: rock
+            disabled: False
             on_release:
-                root.play('rock')
+                root.play('Rock')
+            Image:
+                source: 'rock_button.png'
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+                size: 500, 220
 
         Button:
-            text: 'Ножницы'
+            text: ''
+            font_size: '25sp'
+            size_hint: 1, 1
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            background_color: 255,254,223,0
             id: scissors
+            disabled: False
             on_release:
-                root.play('scissors')
+                root.play('Scissors')
+            Image:
+                source: 'scissors_button.png'
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+                size: 500, 200
 
         Button:
-            text: 'Бумага'
+            text: ''
+            font_size: '25sp'
+            size_hint: 1, 1
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            background_color: 255,254,223,0
             id: paper
+            disabled: False
             on_release:
-                root.play('paper')
+                root.play('Paper')
+            Image:
+                source: 'paper_button.png'
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+                size: 500, 170
+
+    BoxLayout:
+        size_hint: 0.1, 0.2
+        padding: [0, 0, 0, 0]
+
+        Button:
+            text: 'Начать заново'
+            id: play_again
+            disabled: True
+            on_release:
+                root.reload()
+
 
 
 

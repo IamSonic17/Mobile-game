@@ -8,9 +8,9 @@ class Player:
 
     def __gt__(self, other) -> bool:
         return any((
-            self.choice == 'rock' and other.choice == 'scissors',
-            self.choice == 'scissors' and other.choice == 'paper',
-            self.choice == 'paper' and other.choice == 'rock'
+            self.choice == 'Rock' and other.choice == 'Scissors',
+            self.choice == 'Scissors' and other.choice == 'Paper',
+            self.choice == 'Paper' and other.choice == 'Rock'
         ))
 
     def __eq__(self, other):
