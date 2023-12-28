@@ -16,15 +16,19 @@
             size: self.size
             source: 'backscreen.jpg'
 
-    rows: 4
+    rows: 5
     bot_score: bot_score
     user_score: user_score
     user_name: user_name
     status: status
+    bonus: bonus
     rock: rock
     scissors: scissors
     paper: paper
     play_again: play_again
+    image_rock: image_rock
+    image_scissors: image_scissors
+    image_paper: image_paper
 
     AnchorLayout:
         anchor_y: 'top'
@@ -66,6 +70,16 @@
         valign: 'center'
         text_size: self.size
         id: status
+    Label:
+        text: 'Choose!'
+        color: (1,0,0,1)
+        font_size: '65sp'
+        font_name:"Playskool"
+        size_hint: 0.1, 0.4
+        halign: 'center'
+        valign: 'center'
+        text_size: self.size
+        id: bonus
 
     BoxLayout:
         size_hint: 0.1, 0.75
@@ -79,9 +93,13 @@
             background_color: 255,254,223,0
             id: rock
             disabled: False
+            on_press:
+                root.press_button('image_rock')
             on_release:
+                root.release_button('image_rock')
                 root.play('Rock')
             Image:
+                id: image_rock
                 source: 'rock_button.png'
                 center_x: self.parent.center_x
                 center_y: self.parent.center_y
@@ -95,9 +113,13 @@
             background_color: 255,254,223,0
             id: scissors
             disabled: False
+            on_press:
+                root.press_button('image_scissors')
             on_release:
+                root.release_button('image_scissors')
                 root.play('Scissors')
             Image:
+                id: image_scissors
                 source: 'scissors_button.png'
                 center_x: self.parent.center_x
                 center_y: self.parent.center_y
@@ -111,9 +133,13 @@
             background_color: 255,254,223,0
             id: paper
             disabled: False
+            on_press:
+                root.press_button('image_paper')
             on_release:
+                root.release_button('image_paper')
                 root.play('Paper')
             Image:
+                id: image_paper
                 source: 'paper_button.png'
                 center_x: self.parent.center_x
                 center_y: self.parent.center_y

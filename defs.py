@@ -1,15 +1,12 @@
 
 def who_wins(first, second):
     if first == second:
-        answer = f"Draw ({first.choice} vs {second.choice})"
-        print(first.score)
+        answer = [f"({first.choice} vs {second.choice})", "Draw"]
     elif first > second:
-        answer = f"Bot win ({first.choice})"
+        answer = [f"({first.choice} vs {second.choice})", "Bot win"]
         first.score = int(first.score) + 1
     else:
-        answer = f"{second.name} win ({second.choice})"
+        answer = [f"({first.choice} vs {second.choice})", "User win"]
         second.score = int(second.score) + 1
 
     return answer
-
-
